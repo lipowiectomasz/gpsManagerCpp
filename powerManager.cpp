@@ -30,7 +30,7 @@ int main(int argc, char *argv[]){
     cout << endl;
     if(managerEngine->checkDayInCalendar(fullDate.substr(0,4))){
         cout << "Today is free day, gpio's are disable" << endl; 
-        //managerEngine->turnGPIOs(managerEngine->choosedGpios.firstGpio, managerEngine->choosedGpios.secoundGpio, false);
+        managerEngine->turnGPIOs(managerEngine->choosedGpios.firstGpio, managerEngine->choosedGpios.secoundGpio, false);
     }
     else{
         cout << "Today is work day, gpio,s are enable" << endl;
@@ -68,7 +68,6 @@ int main(int argc, char *argv[]){
             time++;
         }
     }
-    
 
     return 0;
 }
