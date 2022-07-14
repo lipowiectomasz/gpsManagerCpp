@@ -251,7 +251,7 @@ void managerLibrary::turnGPIOs(int firstGpio, int secoundGpio, bool mode){
         
     }
     catch(...){
-        cout << "Turning first gpio went wwrong." << endl;
+        cout << "Turning first gpio went wrong." << endl;
     }
 
     try{
@@ -264,10 +264,10 @@ void managerLibrary::turnGPIOs(int firstGpio, int secoundGpio, bool mode){
         }
     }
     catch(...){
-        cout << "Turning secound gpio went wwrong." << endl;
+        cout << "Turning secound gpio went wrong." << endl;
     }
     
-    cout << "Gpio's on" << endl;
+    
 
 }
 int** managerLibrary::testGPIOs(){
@@ -390,7 +390,7 @@ gpiosType managerLibrary::config(){
         }
     }
     cout << endl;
-    cout << "Configuration done." << endl;
+    cout << "Configuration done.";
     for(int i=0; i<7; i++){
         delete [] chanList[i];
     }

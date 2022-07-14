@@ -47,10 +47,12 @@ int main(int argc, char *argv[]){
             if(managerEngine->checkDayInCalendar(fullDate.substr(0,4))){
                 cout << "Today is free day, gpio's are disable" << endl; 
                 managerEngine->turnGPIOs(managerEngine->choosedGpios.firstGpio, managerEngine->choosedGpios.secoundGpio, false);
+                cout << "Gpio's off" << endl;
             }
             else{
                 cout << "Today is work day, gpio's are enable" << endl;
                 managerEngine->turnGPIOs(managerEngine->choosedGpios.firstGpio, managerEngine->choosedGpios.secoundGpio, true);
+                cout << "Gpio's on" << endl;
             }
 
         }
@@ -58,8 +60,8 @@ int main(int argc, char *argv[]){
         while(time<3600){
             if(keyb.kbhit()){
                 exitMark = keyb.getch();
-                
                 if(static_cast <int>(exitMark) == 3){//CTRL+C
+                    managerEngine->turnGPIOs(managerEngine->choosedGpios.firstGpio, managerEngine->choosedGpios.secoundGpio, false);
                     cout << "Ending" << endl;
                     return 0;
                 } 
