@@ -11,6 +11,11 @@
 #include <wiringPi.h>
 #include <typeinfo>
 #include <cstdlib>
+#include <unistd.h>
+#include "getStdout.h"
+
+struct gpiosStruct{ int firstGpio, secoundGpio; };
+typedef struct gpiosStruct gpiosType;
 
 using namespace std;
 
@@ -20,10 +25,12 @@ class managerLibrary{
         char sendAT();
         string getGpsPosition();
         void setTime(string currTime);
-        bool checkDayInCalendar();
-        void turnOnGPIOs();
-        int testGPIOs();
+        bool checkDayInCalendar(string currTime);
+        void turnGPIOs(int firstGpio, int secoundGpio, bool mode);
+        int** testGPIOs();
         bool checkTimeToSync();
+        gpiosType config();
+        gpiosType choosedGpios;
 };
 
 #endif
